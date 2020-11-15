@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+    {% block content %}
+        <!--
+        {% if user.is_authenticated %}
+        <li>User: {{ user.get_username }}</li>
+        {% endif %}
+        -->
+        <p>{{ comment }}</p>
+
+        <form action="{% url 'messager:add_contact' %}" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button name="submit">Добавить контакт</button>
+        </form>
+
+    {% endblock %}

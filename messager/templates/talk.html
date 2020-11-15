@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+    {% block content %}
+
+        <h3>Сообщение {{ sender.username }} для {{ recipient.username }}</h3>
+            <div class="messages_list">
+                {% include 'messager/templates/inc_talk.html' %}
+            </div>
+
+        <form id="talk" method="post" action="{% url 'messager:send' recipient_id %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button name="submit">Отправить</button>
+        </form>
+    {% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+    {% block js %}
+        <script src="/static/js/jquery-3.3.1.js"></script>
+        <script src="/static/js/contacts_update.js"></script>
+    {% endblock %}
+
+    {% block content %}
+        <h4>{{ comment }}</h4>
+        <div class="contacts_list">
+            {% include 'messager/templates/contacts/inc_contacts_list.html' %}
+        </div>
+        
+        <a href="{% url 'messager:add_contact' %}">Добавить новый контакт</a>
+
+    {% endblock %}

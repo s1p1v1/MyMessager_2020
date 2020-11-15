@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+    {% block content %}
+        {% if form.errors %}
+        <p>Повторите вход...</p>
+        {% endif %}
+        <form method="post" action="{% url 'authuser:login' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button name="submit">Вход</button>
+        </form>
+        <!-- Выполнил Стащук Петр
+
+        -->
+
+    {% endblock %}

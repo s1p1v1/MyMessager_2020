@@ -1,0 +1,18 @@
+{% for i in contacts %}
+    <div class="contacts_record">
+        <li>
+            <p class="small_img">
+                <img class="img_g" src="" alt="user">
+            <p/>
+            <p>
+                {% if i.online %}
+                    <a href="{% url 'messager:talk' i.participant.id %}">{{ i.participant.username }} (доступен)</a>
+                {% else %}
+                 <a>{{ i.participant.username }} (не доступен)</a>
+                {% endif %}
+            <p/>
+        </li>
+
+    </div>
+
+{% endfor %}

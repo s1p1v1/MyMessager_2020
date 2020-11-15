@@ -1,0 +1,15 @@
+{% for i in contacts %}
+    <li>
+        {% if i.online %}
+            <a href="{% url 'messager:send' i.participant.id %}">{{ i.participant.username }} (доступен)</a>
+        {% else %}
+             <a>{{ i.participant.username }} (не доступен)</a>
+        {% endif %}
+    </li>
+
+{% endfor %}
+
+{% for j in messages %}
+    <!--- <a href=""> Поступило сообщение от {{ j }}</a> -->
+    <p>Поступило сообщение от {{ j }}</p>
+{% endfor %}

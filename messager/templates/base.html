@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>My Django Messager</title>
+    <!--<link href="/static/css/style.css" rel="stylesheet">-->
+    <script src="/static/js/jquery-3.3.1.js"></script>
+    <script src="/static/js/contacts_update.js"></script>
+    <!--<script src="/static/js/talk_update.js"></script>
+    <script src="/static/js/send_update.js"></script>-->
+    {% block js %}{% endblock %}
+</head>
+<body>
+    <p>Django коммуникатор (Web messager)</p>
+
+    {% if user.is_authenticated %}
+        <li>Пользователь: {{ user.get_username }}</li>
+        <a href="{% url 'authuser:logout' %}">Выход</a>
+        <a href="{% url 'messager:contacts' %}">Контакты</a>
+
+    {% else %}
+        <a href="{% url 'authuser:login' %}">Вход</a>
+        <a href="{% url 'authuser:register' %}">Регистрация</a>
+    {% endif %}
+
+    {% block content %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+    {% block content %}
+        <p>{{ comment }}</p>
+        <form method="post" action="{% url 'authuser:register' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button name="submit">Регистрация пользователя</button>
+            <input type="hidden" name="next" value="{% url 'messager:talk' %}" />
+        </form>
+    {% endblock %}

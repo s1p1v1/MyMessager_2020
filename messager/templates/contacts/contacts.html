@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h4>{{ comment }}</h4>
+
+    <div class="contacts_list">
+        {% include 'messager/templates/contacts/inc_contacts_list.html' %}
+    </div>
+
+    <a href="{% url 'messager:add_contact' %}">Добавить новый контакт</a>
+
+{% endblock %}
